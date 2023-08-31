@@ -27,24 +27,22 @@ const handleLoadCategories = async (categoryId) => {
         console.log(data)
         const div = document.createElement('div');
         div.innerHTML = `
-        <div>
+        <div class="lg:mb-6">
             <div class="card image-full w-[312px] h-[200px] mx-auto">
-            <figure><img src="${data?.thumbnail}" alt="Shoes" /></figure>
+                <figure><img src="${data?.thumbnail}" alt="Shoes" /></figure>
             </div>
-            <div class="flex gap-3 ml-8 mt-5">
-                <div>
-                    <div class="avatar">
-                        <div class="rounded-full w-[40px] h-[40px]">
+            <div class="flex text-center gap-3 ml-16 lg:ml-8 mt-5">
+                    <div class="avatar w-[40px] h-[40px] border bg-white">
+                        <div class="rounded-full">
                         <img src="${data?.authors[0].profile_picture}" />
                         </div>
                     </div>
-                </div>
                 <div>
-                <h2 class="text-[#171717]">${data?.title}</h2>
-                <p>${data?.authors[0].profile_name}</p>
-                <p>${data?.others?.views}</p>
+                    <h2 class="text-[#171717] font-bold text-lg text-left mb-[9px]">${data?.title}</h2>
+                    <p class="text-sm font-normal text-[#252525B2] text-left mb-[9px]">${data?.authors[0].profile_name}</p>
+                    <p class="text-sm font-normal text-[#252525B2] text-left">${data?.others?.views} Views</p>
                 </div>
-        </div>
+            </div>
     </div>
         `;
         cardContainer.appendChild(div)
