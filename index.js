@@ -23,7 +23,7 @@ const handleLoadCategories = async (categoryId) => {
     const cardContainer = document.getElementById('card-container');
 
     const sortByView = document.getElementById('sort-by-view');
-    const sortedData = () => {
+    const sortedByData = () => {
         const sortedData = getData.sort((a, b) => {
             a = a?.others?.views;
             a = parseFloat(a.replace("K", ""));
@@ -35,25 +35,24 @@ const handleLoadCategories = async (categoryId) => {
         })
         categoryCard(sortedData);
     }
-    sortByView.addEventListener('click', sortedData);
+    sortByView.addEventListener('click', sortedByData);
 
 
     const categoryCard = (withOutSortData) => {
-        cardContainer.innerHTML = ""
+        cardContainer.textContent = ""
 
-        // Error page Handle
-        const errorContent = document.getElementById('errorContent');
+        const errorContent = document.getElementById('error-content');
         if (withOutSortData.length === 0) {
             errorContent.innerHTML = `
        <div class="flex justify-center items-center ">
-       <div class="w-3/4 mx-auto text-center">
-           <div class="mb-6 w-44 mx-auto">
-           <img class="w-full" src="/icons/icon.png" alt="Shoes" />
-           </div>
-           <div>
-           <h2 class="font-bold text-5xl">Oops!! Sorry, There is no content here</h2>
-           </div>
-       </div>
+            <div class="w-3/4 mx-auto text-center">
+                <div class=" mt-10 lg:mt-28 mb-6 w-44 mx-auto">
+                    <img src="/icons/icon.png" alt="" />
+                </div>
+                <div>
+                    <h2 class="font-bold text-3xl text-[#171717]">Oops!! Sorry, There is no content here</h2>
+                </div>
+            </div>
        </div>
 
        `;
@@ -65,9 +64,11 @@ const handleLoadCategories = async (categoryId) => {
             const div = document.createElement('div');
             div.innerHTML = `
         <div id="card" class="card card-compact">
-            <figure class="w-full h-[200px]">
-                <img class="w-full h-full rounded-lg" src="${data.thumbnail}" alt="Shoes" />
-            </figure>
+            <div>
+                <figure class="w-full h-[200px]">
+                    <img class="w-full h-full rounded-lg" src="${data.thumbnail}" alt="Shoes" />
+                </figure>
+            </div>
             <div class="card-body">
                 <div class="flex gap-4 items-center">
                     <div class="avatar">
@@ -81,9 +82,7 @@ const handleLoadCategories = async (categoryId) => {
                 </div>
                 <div class="flex gap-3 ml-14">
                     <div class="text-sm font-normal text-[#252525B2]">${data?.authors[0]?.profile_name}</div>
-                    <div class="font-sm font-normal">
-                        <img class="w-5 h-5"  src="${data?.authors[0]?.verified === true ? '/icons/verified.png' : ' '}">
-                    </div>
+                    <span class="w-5 h-5">${data?.authors[0]?.verified? ('<img src="./icons/verified.png">') : ''}</span>
                 </div>
                 <p class="text-sm font-normal text-[#252525B2] ml-14">${data?.others?.views} Views</p>
             </div>
