@@ -31,7 +31,6 @@ const handleLoadCategories = async (categoryId) => {
             b = b?.others?.views;
             b = parseFloat(b.replace("K", ""));
             return b - a;
-
         })
         categoryCard(sortedData);
     }
@@ -61,13 +60,30 @@ const handleLoadCategories = async (categoryId) => {
         }
 
         withOutSortData.forEach(data => {
+
+            const totalSecond = data.others.posted_date
+            const previousMinutes = totalSecond % 60;
+            const minutesTotal = (totalSecond - previousMinutes) / 60;
+            const previousHours = minutesTotal % 60;
+            const hoursTotal = (minutesTotal - previousHours) / 60
+
+
+            let time ;
+            if(totalSecond.length === 0){
+                time;
+            }
+            else{
+                time = `${hoursTotal} Hours ${previousHours} Minutes ago`;
+            }
+
             const div = document.createElement('div');
             div.innerHTML = `
         <div id="card" class="card card-compact">
-            <div>
+            <div class="relative">
                 <figure class="w-full h-[200px]">
                     <img class="w-full h-full rounded-lg" src="${data.thumbnail}" alt="Shoes" />
                 </figure>
+                <div class="badge ${time==undefined ? "bg-transparent border-none " : "text-white"} bg-black absolute bottom-3 right-2">${time?time : ''}</div>
             </div>
             <div class="card-body">
                 <div class="flex gap-4 items-center">
