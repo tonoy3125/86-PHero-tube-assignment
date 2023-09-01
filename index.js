@@ -27,22 +27,29 @@ const handleLoadCategories = async (categoryId) => {
         console.log(data)
         const div = document.createElement('div');
         div.innerHTML = `
-        <div class="lg:mb-6">
-            <div class="card image-full w-[312px] h-[200px] mx-auto">
-                <figure><img src="${data?.thumbnail}" alt="Shoes" /></figure>
-            </div>
-            <div class="flex text-center gap-3 ml-16 lg:ml-8 mt-5">
-                    <div class="avatar w-[40px] h-[40px] border bg-white">
-                        <div class="rounded-full">
-                        <img src="${data?.authors[0].profile_picture}" />
-                        </div>
-                    </div>
+        <div id="card" class="card card-compact">
+        <figure class="w-full h-[200px]">
+            <img class="w-full h-full rounded-lg" src="${data.thumbnail}" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+            <div class="flex gap-4 items-center">
+                <div class="avatar">
+                <div class="w-10 rounded-full">
+                  <img src="${data?.authors[0]?.profile_picture}" />
+                </div>
+              </div>
                 <div>
-                    <h2 class="text-[#171717] font-bold text-lg text-left mb-[9px]">${data?.title}</h2>
-                    <p class="text-sm font-normal text-[#252525B2] text-left mb-[9px]">${data?.authors[0].profile_name}</p>
-                    <p class="text-sm font-normal text-[#252525B2] text-left">${data?.others?.views} Views</p>
+                    <h2 class="text-[#171717] font-bold text-lg"> ${data?.title} </h2>
                 </div>
             </div>
+    <div class="flex gap-3 ml-14">
+        <div class="text-sm font-normal text-[#252525B2]">${data?.authors[0]?.profile_name}</div>
+        <div class="font-sm font-normal">
+        <img class="w-5 h-5"  src="${data?.authors[0]?.verified === true ? '/icons/verified.png' : ' '}">
+        </div>
+    </div>
+            <p class="text-sm font-normal text-[#252525B2] ml-14">${data?.others?.views} Views</p>
+        </div>
     </div>
         `;
         cardContainer.appendChild(div)
