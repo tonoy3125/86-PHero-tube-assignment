@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blog QNA</title>
+</head>
+
+<body>
+
+
+    <div class="container mx-auto mt-10 bg-purple-200 px-10 py-10">
+        <!-- Question 01 -->
+
+        <h1 class="text-4xl font-bold pb-5"><u>Question 01:</u> Discuss the scope of var, let, and const</h1>
+        <div class="lg:ml-10 ml-4">
+            <h3 class="text-2xl font-semibold pb-3"><u>Var:</u></h3>
+            <p class="text-xl mb-4 lg:ml-10 ml-5">Before the advent of ES6, var declarations ruled. There are issues
+                associated with variables declared with var, though. That is why it was necessary for new ways to
+                declare variables to emerge. First, let's get to understand var more before we discuss those issues.</p>
+            <h3 class="text-2xl font-semibold pb-3"><u>Scope of var:</u></h3>
+            <p class="text-xl mb-7 lg:ml-10 ml-5">var declarations are globally scoped or function/locally scoped.
+
+                The scope is global when a var variable is declared outside a function. This means that any variable
+                that is declared with var outside a function block is available for use in the whole window.
+
+                var is function scoped when it is declared within a function. This means that it is available and can be
+                accessed only within that function.</p>
+
+            <h3 class="text-2xl font-semibold pb-3"><u>Let:</u></h3>
+            <p class="text-xl mb-4 lg:ml-10 ml-5">let is now preferred for variable declaration. It's no surprise as it
+                comes as an improvement to var declarations. It also solves the problem with var that we just covered.
+                Let's consider why this is so..</p>
+            <h3 class="text-2xl font-semibold pb-3"><u>Scope of Let:</u></h3>
+            <p class="text-xl mb-7 lg:ml-10 ml-5">A block is a chunk of code bounded by {}. A block lives in curly
+                braces. Anything within curly braces is a block.
+
+                So a variable declared in a block with let is only available for use within that block.</p>
+
+            <h3 class="text-2xl font-semibold pb-3"><u>Const:</u></h3>
+            <p class="text-xl mb-4 lg:ml-10 ml-5">Variables declared with the const maintain constant values. const
+                declarations share some similarities with let declarations.</p>
+            <h3 class="text-2xl font-semibold pb-3"><u>Scope of Const:</u></h3>
+            <p class="text-xl mb-10 lg:ml-10 ml-5">Like let declarations, const declarations can only be accessed within
+                the block they were declared.
+
+                Const cannot be updated or re-declared.
+                This means that the value of a variable declared with const remains the same within its scope. It cannot
+                be updated or re-declared. So if we declare a variable with const, we can neither do this:</p>
+
+
+        </div>
+        <!-- question 02 -->
+        <h1 class="text-4xl font-bold pb-5 pt-5"><u>Question 02:</u> Tell us the use cases of <span
+                class="text-green-400">Null</span> and <span class="text-green-400"> Undefined</span></h1>
+
+        <h3 class="text-2xl font-semibold pb-3"><u>Undefined</u></h3>
+        <p class="text-xl pb-4">Undefined is a primitive data type that represents a variable that has been declared but
+            has not been assigned a value. It's important to note that `undefined` is not the same as "not-defined"it's
+            a specific value that a variable can have. </p>
+        <p class="text-xl pb-3">Here are some common use cases for undefined:</p>
+        <ol class="list-decimal lg:ml-40">
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Variable Initialization:</span><br>Variable
+                Initialization: When you declare a variable without assigning an initial value to it, it is
+                automatically initialized to `Undefined`.
+            </li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Function Parameters:</span><br>If a function is
+                called with fewer arguments than declared in its parameter list, the missing arguments are set to
+                `Undefined`.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Return Value</span><br>If a function doesn't
+                explicitly return a value, it implicitly returns `Undefined`.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Accessing Non-Existent Object
+                    Properties:</span><br> When you try to access a property of an object that doesn't exist, JavaScript
+                returns `Undefined`.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Array Elements:</span><br> If you try to access
+                an array element at an index that is out of range, it returns `Undefined`.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Optional Function Parameters:</span><br>When
+                using optional function parameters, you can check if an argument is `Undefined` and provide a default
+                value.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Array Elements:</span><br>Accessing an index
+                that is out of bounds in an array will return `Undefined`.</li>
+
+        </ol>
+
+        <h3 class="text-2xl font-semibold pb-3 pt-10"><u>Null</u></h3>
+        <p class="text-xl pb-4">Null is a special value that represents the intentional absence of any object value or a
+            placeholder for an expected object value that is not yet available. </p>
+
+        <p class="text-xl pb-3">It is often used in specific use cases,which given below:</p>
+
+        <ol class="list-decimal lg:ml-40 pb-10">
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Initializing Variables:</span><br>You can
+                initialize a variable to null when you want to explicitly indicate that it has no value, but you expect
+                it to hold an object value later in the program.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Resetting or Clearing Values:</span><br>Setting
+                a variable to null is a common way to clear or reset it, especially when you want to release memory
+                resources associated with an object.</li>
+
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Function Return Values:</span><br>Functions may
+                return `null` to indicate that they didn't find a valid result or encountered an error.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Object Properties:</span><br>Object properties
+                can be set to `null` to indicate that a certain property is intentionally empty or doesn't have a value
+                yet.</li>
+
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Checking for Missing Values:</span><br>You can
+                use null to check if a value is missing or uninitialized, especially when you want to distinguish
+                between missing and defined values.</li>
+
+            <li class="pb-3 text-lg"><span class="text-xl font-semibold">Default Values:</span><br>null can be used as a
+                default value when you want to initialize variables or object properties and intend to set them to a
+                different value later.</li>
+
+        </ol>
+
+
+
+        <!-- question 03 -->
+        <h1 class="text-4xl font-bold pb-5"><u>Question 03:</u> What do you mean by REST API?</h1>
+        <h3 class="text-2xl font-semibold pb-5 "><u> Api</u></h3>
+        <p class="text-xl mb-10 lg:ml-10 ml-5">An API for a website is code that allows two software programs to
+            communicate with each other. The API spells out the proper way for a developer to write a program requesting
+            services from an operating system or other application.</p>
+
+        <h3 class="text-2xl font-semibold pb-5 "><u>Rest Api</u></h3>
+        <p class="text-xl mb-10 lg:ml-10 ml-5">A Rest API is an architectural style for an application program interface
+            (API) that uses HTTP requests to access and use data. That data can be used to GET, PUT, POST and DELETE
+            data types, which refers to the reading, updating, creating and deleting of operations concerning resources.
+        </p>
+
+        <h3 class="text-2xl font-semibold pb-5 "><u>More About Rest Api</u></h3>
+        <p class="text-xl mb-10 lg:ml-10 ml-5">A REST API -- also referred to as a RESTful web service or REST API -- is
+            based on representational state transfer (REST), which is an architectural style and approach to
+            communications often used in web services development.
+
+            REST technology is generally preferred over other similar technologies. This tends to be the case because
+            REST uses less bandwidth, making it more suitable for efficient internet usage. RESTful APIs can also be
+            built with programming languages such as JavaScript or Python.</p>
+
+
+        <h3 class="text-2xl font-semibold pb-5 "><u>How Rest Api works</u></h3>
+        <p class="text-xl mb-10 lg:ml-10 ml-5">A RESTful API breaks down a transaction to create a series of small
+            modules. Each module addresses an underlying part of the transaction. This modularity provides developers
+            with a lot of flexibility, but it can be challenging for developers to design their REST API from scratch.
+            Currently, several companies provide models for developers to use; the models provided by Amazon S3, Cloud
+            Data Management Interface (CDMI) and OpenStack Swift are the most popular.</p>
+
+        <h3 class="text-2xl font-semibold pb-5 "><u>REST API HTTP Method</u></h3>
+        <p class="text-xl mb-10 lg:ml-10 ml-5">A RESTful API uses existing HTTP methodologies defined by the RFC 2616
+            protocol, such as: <br>
+
+            1.GET to retrieve a resource; <br>
+            2.PUT to change the state of or update a resource, which can be an object, file or block; <br>
+            3.POST to create that resource; and <br>
+            4.DELETE to remove it.</p>
+        <h3 class="text-2xl font-semibold pb-5 "><u>REST API Data Formats Support</u></h3>
+        <p class="text-xl mb-10 lg:ml-10 ml-5">
+            1. application/json <br>
+            2. application/xml<br>
+            3. application/x-wbe+xml<br>
+            4. application/x-www-form-urlencoded<br>
+            5. multipart/form-data
+        </p>
+
+
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

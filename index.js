@@ -80,13 +80,13 @@ const handleLoadCategories = async (categoryId) => {
             div.innerHTML = `
         <div id="card" class="card card-compact">
             <div class="relative">
-                <figure class="w-full h-[200px]">
+                <figure class=" w-[312px] mx-auto lg:w-full h-[200px]">
                     <img class="w-full h-full rounded-lg" src="${data.thumbnail}" alt="Shoes" />
                 </figure>
-                <div class="badge ${time==undefined ? "bg-transparent border-none " : "text-white"} bg-black absolute bottom-3 right-2">${time?time : ''}</div>
+                <div class="badge ${time==undefined ? "bg-transparent border-none " : "text-white"} bg-black absolute bottom-3 right-16 lg:right-2">${time?time : ''}</div>
             </div>
             <div class="card-body">
-                <div class="flex gap-4 items-center">
+                <div class="flex gap-4 items-center ml-12 lg:ml-0 ">
                     <div class="avatar">
                         <div class="w-10 rounded-full">
                             <img src="${data?.authors[0]?.profile_picture}" />
@@ -96,11 +96,11 @@ const handleLoadCategories = async (categoryId) => {
                         <h2 class="text-[#171717] font-bold text-lg"> ${data?.title} </h2>
                     </div>
                 </div>
-                <div class="flex gap-3 ml-14">
+                <div class="flex gap-3 ml-[105px] lg:ml-14">
                     <div class="text-sm font-normal text-[#252525B2]">${data?.authors[0]?.profile_name}</div>
                     <span class="w-5 h-5">${data?.authors[0]?.verified? ('<img src="./icons/verified.png">') : ''}</span>
                 </div>
-                <p class="text-sm font-normal text-[#252525B2] ml-14">${data?.others?.views} Views</p>
+                <p class="text-sm font-normal text-[#252525B2] ml-[105px] lg:ml-14">${data?.others?.views} Views</p>
             </div>
         </div>
         `;
@@ -113,6 +113,12 @@ const handleLoadCategories = async (categoryId) => {
 }
 
 
+
+
+
+const blogButton = document.getElementById('blog-btn').addEventListener('click', function(){
+    window.location.href = 'blog.html';
+})
 
 
 getCategories()
