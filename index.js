@@ -1,3 +1,5 @@
+
+// Get Categories function
 const getCategories = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/categories')
     const data = await response.json()
@@ -9,18 +11,19 @@ const getCategories = async () => {
         li.innerHTML = `
         <button onclick ="handleLoadCategories('${category.category_id}')" class=" rounded-[4px] text-base hover:bg-red-600 hover:text-white pt-[5px] pb-[5px] pl-5 pr-5 text-[#252525B2] bg-[#25252526]">${category.category}</button>
         `;
-        categoriesContainer.appendChild(li)
+        categoriesContainer.appendChild(li);
     });
-
-
-
 }
+
+// Get Categories id
 
 const handleLoadCategories = async (categoryId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await response.json()
     const getData = data.data;
     const cardContainer = document.getElementById('card-container');
+
+    // Sort By views
 
     const sortByView = document.getElementById('sort-by-view');
     const sortedByData = () => {
@@ -36,6 +39,7 @@ const handleLoadCategories = async (categoryId) => {
     }
     sortByView.addEventListener('click', sortedByData);
 
+    // Show Error content
 
     const categoryCard = (withOutSortData) => {
         cardContainer.textContent = ""
@@ -61,6 +65,8 @@ const handleLoadCategories = async (categoryId) => {
 
         withOutSortData.forEach(data => {
 
+            // show time
+
             const totalSecond = data.others.posted_date
             const previousMinutes = totalSecond % 60;
             const minutesTotal = (totalSecond - previousMinutes) / 60;
@@ -75,7 +81,7 @@ const handleLoadCategories = async (categoryId) => {
             else{
                 time = `${hoursTotal} Hours ${previousHours} Minutes ago`;
             }
-
+// Show Card...........
             const div = document.createElement('div');
             div.innerHTML = `
         <div id="card" class="card card-compact">
@@ -114,15 +120,13 @@ const handleLoadCategories = async (categoryId) => {
 
 
 
-
+// Blog Button Clicked Function
 
 const blogButton = document.getElementById('blog-btn').addEventListener('click', function(){
     window.location.href = 'blog.html';
 })
 
-
-
-
+// Function Called
 getCategories()
 
 handleLoadCategories('1000')
