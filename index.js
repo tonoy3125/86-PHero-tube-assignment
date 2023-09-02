@@ -121,6 +121,8 @@ const blogButton = document.getElementById('blog-btn').addEventListener('click',
 })
 
 
+
+
 getCategories()
 
 handleLoadCategories('1000')
